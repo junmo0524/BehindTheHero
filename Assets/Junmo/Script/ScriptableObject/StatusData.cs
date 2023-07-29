@@ -9,20 +9,22 @@ public class StatusData : ScriptableObject
 {
     public List<status> statusList = new List<status>();
 
-    [System.Serializable]
+    [Serializable]
     public class status
     {
         public string Name;
         public int LEVEL;
+        public int EXP;
         public int HP;
         public int ATK;
         public int DEF;
         public int DEX;
 
-        public status(string name, int level, int hp, int atk, int def, int dex)
+        public status(string name, int level, int exp, int hp, int atk, int def, int dex)
         {
             Name = name;
             LEVEL = level;
+            EXP = exp;
             HP = hp;
             ATK = atk;
             DEF = def;

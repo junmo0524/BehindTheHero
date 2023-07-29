@@ -9,14 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d43b982cadb47d74d80a7c2d6a022710, type: 3}
-  m_Name: StatusData
+  m_Script: {fileID: 11500000, guid: 3e011c9abb4dac443b30248936bb23f5, type: 3}
+  m_Name: MaxStatus
   m_EditorClassIdentifier: 
-  statusList:
-  - Name: Player
-    LEVEL: 50
-    EXP: 0
-    HP: 15
-    ATK: 10
-    DEF: 10
-    DEX: 10
+  MaxLevel: 50
+  MaxStatus: 50

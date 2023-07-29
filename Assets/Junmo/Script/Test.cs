@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Test : MonoBehaviour
 {
     public StatusData characterStatus;
+    public MaxStatusData max;
 
     public void Awake()
     {
@@ -13,33 +14,51 @@ public class Test : MonoBehaviour
     }
     public void Start()
     {
-        // PlayerPrefs에서 데이터를 불러옵니다.
-        characterStatus.LoadCharacterStatus();
 
-        if (characterStatus.statusList.Count > 0)
-        {
-            // 첫 번째 캐릭터의 HP를 1 증가시킵니다.
-            characterStatus.statusList[0].HP++;
-            characterStatus.statusList[0].LEVEL++;
-            Debug.Log("레벨업했습니다. 현재 LEVEL: " + characterStatus.statusList[0].LEVEL);
-            Debug.Log("HP가 1 증가했습니다. 현재 HP: " + characterStatus.statusList[0].HP);
-
-            // 변경된 상태 데이터를 PlayerPrefs에 저장합니다.
-            characterStatus.SaveCharacterStatus();
-        }
-        else
-        {
-            Debug.Log("캐릭터 데이터가 없습니다. 레벨업에 실패했습니다.");
-        }
     }
-
-    private const int MaxCharacterLevel = 100;
 
     public void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("TestScene1");
+            if (characterStatus.statusList.Count > 0)
+            {
+                if (characterStatus.statusList[0].LEVEL < max.MaxLevel)
+                {
+                    characterStatus.statusList[0].EXP++;
+                    Debug.Log("현재 EXP: " + characterStatus.statusList[0].EXP);
+                    if (characterStatus.statusList[0].EXP == 10)
+                    {
+                        LevelUP();
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log("캐릭터 데이터가 없습니다.");
+            }
+            // 변경된 상태 데이터를 PlayerPrefs에 저장합니다.
+            characterStatus.SaveCharacterStatus();
         }
     }
+
+    public void LevelUP() // LevelUP 함수
+    {
+        characterStatus.statusList[0].LEVEL++;
+        characterStatus.statusList[0].EXP = 0;
+        StatusUP();
+        Debug.Log("레벨업했습니다. 현재 LEVEL: " + characterStatus.statusList[0].LEVEL);
+    }
+    public void StatusUP() // StatusUP 함수
+    {
+        characterStatus.statusList[0].HP++;
+        characterStatus.statusList[0].ATK++;
+        characterStatus.statusList[0].DEF++;
+        characterStatus.statusList[0].DEX++;
+        Debug.Log("HP가 1 증가했습니다. 현재 HP: " + characterStatus.statusList[0].HP);
+        Debug.Log("ATK가 1 증가했습니다. 현재 ATK: " + characterStatus.statusList[0].ATK);
+        Debug.Log("DEF가 1 증가했습니다. 현재 DEF: " + characterStatus.statusList[0].DEF);
+        Debug.Log("DEX가 1 증가했습니다. 현재 DEX: " + characterStatus.statusList[0].DEX);
+    }
+    private const int MaxCharacterLevel = 100;
 }
