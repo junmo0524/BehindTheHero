@@ -18,19 +18,19 @@ public class Dungeon : MonoBehaviour
         
     }
 
-    public void Entering()
+    public void Click_Dungeon()
     {
         Time.timeScale = 0;
         menuDungeon.SetActive(true);
     }
 
-    public void DungeonEnter()
+    public void Click_DungeonEnter()
     {
         Time.timeScale = 0;
 
     }
 
-    public void MenuEnter()
+    public void Click_MenuEnter()
     {
         Time.timeScale = 0;
         menuDungeon.SetActive(false);
