@@ -14,7 +14,7 @@ public class Test : MonoBehaviour
     }
     public void Start()
     {
-
+        tag = characterStatus.statusList[0].Name;
     }
 
     public void Update()
@@ -60,5 +60,4 @@ public class Test : MonoBehaviour
         Debug.Log("DEF가 1 증가했습니다. 현재 DEF: " + characterStatus.statusList[0].DEF);
         Debug.Log("DEX가 1 증가했습니다. 현재 DEX: " + characterStatus.statusList[0].DEX);
     }
-    private const int MaxCharacterLevel = 100;
 }

@@ -15,9 +15,12 @@ public class M_StatusData : ScriptableObject
     private int atk;
     public int ATK { get { return atk; } }
     [SerializeField]
-    private float def;
-    public float Def { get { return def; } }
+    private int def;
+    public int DEF { get { return def; } }
     [SerializeField]
-    private float dex;
-    public float Dex { get { return dex; } }
+    private int dex;
+    public int DEX { get { return dex; } }
+    [SerializeField]
+    private int Exp;
+    public int EXP { get { return dex; } }
 }
