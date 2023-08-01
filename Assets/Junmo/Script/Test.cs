@@ -25,8 +25,6 @@ public class Test : MonoBehaviour
             {
                 if (characterStatus.statusList[0].LEVEL < max.MaxLevel)
                 {
-                    characterStatus.statusList[0].EXP++;
-                    Debug.Log("ÇöÀç EXP: " + characterStatus.statusList[0].EXP);
                     if (characterStatus.statusList[0].EXP == 10)
                     {
                         LevelUP();

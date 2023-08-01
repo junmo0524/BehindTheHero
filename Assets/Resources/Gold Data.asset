@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7924f0026dd52f54e893aa0cc05d0d80, type: 3}
   m_Name: Gold Data
   m_EditorClassIdentifier: 
-  Money: 111111
-  Mineral: 200
+  Money: 20
+  Mineral: 100
   Wood: 100
