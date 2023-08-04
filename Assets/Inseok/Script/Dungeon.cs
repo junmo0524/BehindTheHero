@@ -27,7 +27,7 @@ public class Dungeon : MonoBehaviour
     public void Click_DungeonEnter()
     {
         Time.timeScale = 0;
-
+        menuDungeon.SetActive(false);
     }
 
     public void Click_MenuEnter()
