@@ -16,5 +16,5 @@ MonoBehaviour:
   hp: 2
   atk: 3
   def: 2
-  dex: 3
+  dex: 2
   Exp: 2

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MonsterTest : MonoBehaviour
@@ -7,11 +8,12 @@ public class MonsterTest : MonoBehaviour
     public M_StatusData Status;
     public StatusData H_Status;
     public GoldData Gold;
+    public TMP_Text DisplayStatus;
     private string M_name;
     private int hp;
     private int atk;
     private int def;
-    private int dex;
+    public int dex;
     private int exp;
 
     public void Awake()
@@ -30,12 +32,17 @@ public class MonsterTest : MonoBehaviour
 
     public void Update()
     {
-
+        DisplayStatus.text =
+            M_name + "\n" +
+           "HP: " + hp + "/" + Status.Hp + "\n" +
+           "ATK: " + atk + "\n" +
+           "DEF: " + def + "\n" +
+           "DEX: " + dex;
     }
     public void OnDamage(int ATK, int RoleNum)
     {
         hp = hp - ATK;
-        Debug.Log("남은 체력: " + hp);
+        //Debug.Log("남은 체력: " + hp);
         if(hp <= 0)
         {
             Debug.Log(M_name + "을 물리쳤습니다");
