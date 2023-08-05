@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: Spirit
   hp: 2
-  atk: 3
+  atk: 1
   def: 2
   dex: 2
-  Exp: 2
+  Exp: 3

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: Knight
   hp: 5
-  atk: 5
+  atk: 0
   def: 5
   dex: 5
-  Exp: 3
+  Exp: 5

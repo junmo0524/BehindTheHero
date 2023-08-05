@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: Hamster_Wizard
   hp: 3
-  atk: 4
+  atk: 1
   def: 2
   dex: 3
-  Exp: 1
+  Exp: 4

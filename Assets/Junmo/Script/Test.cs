@@ -68,8 +68,7 @@ public class Test : MonoBehaviour
         GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemys)
         {
-            enemy.GetComponent<MonsterTest>()?.OnDamage(characterStatus.ATK, RoleNum);
-            LevelUP();
+            enemy.GetComponent<MonsterTest>()?.OnDamage(characterStatus.ATK);
         }
     }
 
@@ -86,10 +85,12 @@ public class Test : MonoBehaviour
     }
 
 
-    public void LevelUP() // LevelUP 함수
+    public void LevelUP(int EXP) // LevelUP 함수
     {
         if (characterStatus.LEVEL < max.MaxLevel)
         {
+            characterStatus.EXP += EXP;
+            Debug.Log("EXP" + EXP + "을 얻었습니다.");
             if (characterStatus.EXP == 10)
             {
                 characterStatus.LEVEL++;
@@ -104,11 +105,11 @@ public class Test : MonoBehaviour
         characterStatus.HP++;
         characterStatus.ATK++;
         characterStatus.DEF++;
-        characterStatus.DEX++;
+        //characterStatus.DEX++;
         Debug.Log("HP가 1 증가했습니다. 현재 HP: " + characterStatus.HP);
         Debug.Log("ATK가 1 증가했습니다. 현재 ATK: " + characterStatus.ATK);
         Debug.Log("DEF가 1 증가했습니다. 현재 DEF: " + characterStatus.DEF);
-        Debug.Log("DEX가 1 증가했습니다. 현재 DEX: " + characterStatus.DEX);
+        //Debug.Log("DEX가 1 증가했습니다. 현재 DEX: " + characterStatus.DEX);
     }
 
     public void Die()
