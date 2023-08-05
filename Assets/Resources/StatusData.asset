@@ -13,10 +13,17 @@ MonoBehaviour:
   m_Name: StatusData
   m_EditorClassIdentifier: 
   statusList:
-  - Name: Hero
+  - Name: Warrior
+    LEVEL: 1
+    EXP: 5
+    HP: 5
+    ATK: 1
+    DEF: 2
+    DEX: 0
+  - Name: Magic
     LEVEL: 1
     EXP: 0
     HP: 5
-    ATK: 1
-    DEF: 1
+    ATK: 2
+    DEF: 0
     DEX: 1

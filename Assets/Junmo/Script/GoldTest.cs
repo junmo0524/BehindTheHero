@@ -8,7 +8,7 @@ public class GoldTest : MonoBehaviour
 
     public void Awake()
     {
-        GoldData.LoadGold();
+        //GoldData.LoadGold(); // ∞ÒµÂ µ•¿Ã≈Õ √ ±‚»≠µ 
     }
     void Start()
     {

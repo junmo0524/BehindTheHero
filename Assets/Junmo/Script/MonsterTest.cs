@@ -30,22 +30,19 @@ public class MonsterTest : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Damage();
-        }
+
     }
-    void Damage()
+    public void OnDamage(int ATK, int RoleNum)
     {
-        hp = hp - H_Status.statusList[0].ATK;
+        hp = hp - ATK;
         Debug.Log("남은 체력: " + hp);
         if(hp <= 0)
         {
             Debug.Log(M_name + "을 물리쳤습니다");
             Gold.Mineral += 50;
-            H_Status.statusList[0].EXP += 5;
+            H_Status.statusList[RoleNum].EXP += 5;
             Debug.Log("Mineral 50을 얻었습니다. 현재 Mineral: " + Gold.Mineral);
-            Debug.Log("EXP 5을 얻었습니다. 현재 EXP: " + H_Status.statusList[0].EXP);
+            Debug.Log("EXP 5을 얻었습니다. 현재 EXP: " + H_Status.statusList[RoleNum].EXP);
             gameObject.SetActive(false);
         }
     }
