@@ -15,9 +15,6 @@ public class GoldTest : MonoBehaviour
     void Start()
     {
         GoldData.Money = 20;
-        Debug.Log("µ·: "+ GoldData.Money);
-        Debug.Log("±¤¹°: " + GoldData.Mineral);
-        Debug.Log("³ª¹«: " + GoldData.Wood);
         GoldData.SaveGold();
     }
 

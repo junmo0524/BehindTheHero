@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -38,63 +39,80 @@ public class Test : MonoBehaviour
         else if (state == State.Thief)
             RoleNum = 3;
 
-        CurrHp = characterStatus.statusList[RoleNum].HP;
+        CurrHp = characterStatus.HP;
     }
 
     public void Update()
     {
         DisplayStatus.text =
-             characterStatus.statusList[RoleNum].Name + "\n" +
-           "HP: " + CurrHp + "/" + characterStatus.statusList[RoleNum].HP + "\n" +
-           "ATK: " + characterStatus.statusList[RoleNum].ATK + "\n" +
-           "DEF: " + characterStatus.statusList[RoleNum].DEF + "\n" +
-           "DEX: " + characterStatus.statusList[RoleNum].DEX;
+             characterStatus.Name + "\n" +
+           "HP: " + CurrHp + "/" + characterStatus.HP + "\n" +
+           "ATK: " + characterStatus.ATK + "\n" +
+           "DEF: " + characterStatus.DEF + "\n" +
+           "DEX: " + characterStatus.DEX;
         DisplayEXP.text =
-            "LEVEL: " + characterStatus.statusList[RoleNum].LEVEL + "\n" +
-            "EXP: " + characterStatus.statusList[RoleNum].EXP + "/" + 10;
+            "LEVEL: " + characterStatus.LEVEL + "\n" +
+            "EXP: " + characterStatus.EXP + "/" + 10;
 
         if (Input.GetMouseButtonDown(0))
         {
-            Attack();
-            LevelUP();
-
-            // 변경된 상태 데이터를 PlayerPrefs에 저장합니다.
-            characterStatus.SaveCharacterStatus();
+            //Attack();
         }
+        // 변경된 상태 데이터를 PlayerPrefs에 저장합니다.
+        characterStatus.SaveCharacterStatus();
     }
 
     public void Attack() // Attack 함수
     {
+        Debug.Log(characterStatus.name + " 의 차례");
         GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemys)
         {
-            enemy.GetComponent<MonsterTest>()?.OnDamage(characterStatus.statusList[RoleNum].ATK, RoleNum);
+            enemy.GetComponent<MonsterTest>()?.OnDamage(characterStatus.ATK, RoleNum);
+            LevelUP();
+        }
+    }
+
+    public void OnDamage(int ATK)
+    {
+        CurrHp = CurrHp - ATK;
+        Debug.Log(ATK + "만큼의 피해를 입었다");
+        if (CurrHp <= 0)
+        {
+            Debug.Log(characterStatus.name + "이 쓰러졌습니다");
+            CurrHp = 0;
+            Invoke("Die", 0.2f);
         }
     }
 
 
     public void LevelUP() // LevelUP 함수
     {
-        if (characterStatus.statusList[RoleNum].LEVEL < max.MaxLevel)
+        if (characterStatus.LEVEL < max.MaxLevel)
         {
-            if (characterStatus.statusList[RoleNum].EXP == 10)
+            if (characterStatus.EXP == 10)
             {
-                characterStatus.statusList[RoleNum].LEVEL++;
-                characterStatus.statusList[RoleNum].EXP = 0;
+                characterStatus.LEVEL++;
+                characterStatus.EXP = 0;
                 StatusUP();
-                Debug.Log("레벨업했습니다. 현재 LEVEL: " + characterStatus.statusList[RoleNum].LEVEL);
+                Debug.Log("레벨업했습니다. 현재 LEVEL: " + characterStatus.LEVEL);
             }
         }
     }
     public void StatusUP() // StatusUP 함수
     {
-        characterStatus.statusList[RoleNum].HP++;
-        characterStatus.statusList[RoleNum].ATK++;
-        characterStatus.statusList[RoleNum].DEF++;
-        characterStatus.statusList[RoleNum].DEX++;
-        Debug.Log("HP가 1 증가했습니다. 현재 HP: " + characterStatus.statusList[RoleNum].HP);
-        Debug.Log("ATK가 1 증가했습니다. 현재 ATK: " + characterStatus.statusList[RoleNum].ATK);
-        Debug.Log("DEF가 1 증가했습니다. 현재 DEF: " + characterStatus.statusList[RoleNum].DEF);
-        Debug.Log("DEX가 1 증가했습니다. 현재 DEX: " + characterStatus.statusList[RoleNum].DEX);
+        characterStatus.HP++;
+        characterStatus.ATK++;
+        characterStatus.DEF++;
+        characterStatus.DEX++;
+        Debug.Log("HP가 1 증가했습니다. 현재 HP: " + characterStatus.HP);
+        Debug.Log("ATK가 1 증가했습니다. 현재 ATK: " + characterStatus.ATK);
+        Debug.Log("DEF가 1 증가했습니다. 현재 DEF: " + characterStatus.DEF);
+        Debug.Log("DEX가 1 증가했습니다. 현재 DEX: " + characterStatus.DEX);
+    }
+
+    public void Die()
+    {
+        gameObject.SetActive(false);
     }
 }

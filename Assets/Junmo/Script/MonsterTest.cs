@@ -13,7 +13,7 @@ public class MonsterTest : MonoBehaviour
     private int hp;
     private int atk;
     private int def;
-    public int dex;
+    private int dex;
     private int exp;
 
     public void Awake()
@@ -27,7 +27,7 @@ public class MonsterTest : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log(M_name);
+
     }
 
     public void Update()
@@ -42,15 +42,31 @@ public class MonsterTest : MonoBehaviour
     public void OnDamage(int ATK, int RoleNum)
     {
         hp = hp - ATK;
-        //Debug.Log("남은 체력: " + hp);
+        Debug.Log(ATK + "만큼의 피해를 입었다");
         if(hp <= 0)
         {
+            hp = 0;
             Debug.Log(M_name + "을 물리쳤습니다");
             Gold.Mineral += 50;
-            H_Status.statusList[RoleNum].EXP += 5;
+            H_Status.EXP += 5;
             Debug.Log("Mineral 50을 얻었습니다. 현재 Mineral: " + Gold.Mineral);
-            Debug.Log("EXP 5을 얻었습니다. 현재 EXP: " + H_Status.statusList[RoleNum].EXP);
-            gameObject.SetActive(false);
+            Debug.Log("EXP 5을 얻었습니다. 현재 EXP: " + H_Status.EXP);
+            Invoke("Die", 0.2f);
         }
+    }
+
+    public void Attack()
+    {
+        Debug.Log(M_name + " 의 차례");
+        GameObject[] enemys = GameObject.FindGameObjectsWithTag("Hero");
+        foreach (GameObject hero in enemys)
+        {
+            hero.GetComponent<Test>()?.OnDamage(atk);
+        }
+    }
+
+    public void Die()
+    {
+        gameObject.SetActive(false);
     }
 }

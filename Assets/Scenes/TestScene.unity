@@ -813,6 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d57a46a91ac174ab3807964070fa39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  List: 
   StatusList: []
 --- !u!1 &716790368
 GameObject:
@@ -843,7 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8011415a38b29c04d9d8b9512a9631d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterStatus: {fileID: 11400000, guid: 0c83023f6b3ca9242b05383471b1d703, type: 2}
+  characterStatus: {fileID: 11400000, guid: 0a1ea3eebd42bda498c42727e6c30270, type: 2}
   max: {fileID: 11400000, guid: cd39d448a9b18e941a43878eee66c4b3, type: 2}
   DisplayStatus: {fileID: 1117565862}
   DisplayEXP: {fileID: 1024313808}
@@ -1956,7 +1957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8011415a38b29c04d9d8b9512a9631d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterStatus: {fileID: 11400000, guid: 0c83023f6b3ca9242b05383471b1d703, type: 2}
+  characterStatus: {fileID: 11400000, guid: 050c16e101b90d946abb948e65f0e913, type: 2}
   max: {fileID: 11400000, guid: cd39d448a9b18e941a43878eee66c4b3, type: 2}
   DisplayStatus: {fileID: 583191801}
   DisplayEXP: {fileID: 2022413708}
