@@ -19,7 +19,10 @@ public class Itemappear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-                
+        if (Pushtime == 5)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -27,29 +30,14 @@ public class Itemappear : MonoBehaviour
         if (collision.gameObject.name == "Target")
         {
             Debug.Log("이벤트발생");
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.F))
             {
-                //isdown = true;
-                Debug.Log("채집 시작.");
-                if (true)
-                {
-                    Pushtime += Time.deltaTime;
-                    if (Pushtime == 5)
-                    {
-                        Destroy(gameObject);
-                    }
-                }
+                Pushtime++;
+                Debug.Log("채집 " + Pushtime + " 회");
 
-                else
-                {
-                    Pushtime = 0;
-                }
             }
 
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                isdown = false;
-            }
+         
         }
     }
 }
