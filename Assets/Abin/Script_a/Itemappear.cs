@@ -6,7 +6,7 @@ using UnityEngine;
 public class Itemappear : MonoBehaviour
 {
     public Vector2 inputVec;
-    Rigidbody2D rigid;
+    public Rigidbody2D rigid;
 
     public bool isdown;
     public float Pushtime = 0;
@@ -17,10 +17,10 @@ public class Itemappear : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
                 
-    }
+    //}
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,25 +31,16 @@ public class Itemappear : MonoBehaviour
             {
                 //isdown = true;
                 Debug.Log("채집 시작.");
-                if (true)
+                Pushtime ++;
+                if (Pushtime == 5)
                 {
-                    Pushtime += Time.deltaTime;
-                    if (Pushtime == 5)
-                    {
-                        Destroy(gameObject);
-                    }
+                    Destroy(gameObject);
                 }
 
-                else
-                {
-                    Pushtime = 0;
-                }
+               
             }
 
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                isdown = false;
-            }
+           
         }
     }
 }
