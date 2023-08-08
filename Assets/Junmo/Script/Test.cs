@@ -7,8 +7,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Test : MonoBehaviour
-{
-    public enum State
+{   
+    public enum Job
     {
         Warrior,
         Healer,
@@ -16,10 +16,19 @@ public class Test : MonoBehaviour
         Thief
     }
 
+    public enum State
+    {
+        Normal,
+        Burn,
+        Scar,
+        Hungry
+    }
+
     public StatusData characterStatus;
     public MaxStatusData max;
     public TMP_Text DisplayStatus;
     public TMP_Text DisplayEXP;
+    public Job job;
     public State state;
 
     private int HP;
@@ -39,23 +48,23 @@ public class Test : MonoBehaviour
         ATK = characterStatus.ATK;
         DEF = characterStatus.DEF;
         DEX = characterStatus.DEX;
-        if (state == State.Warrior)
+        if (job == Job.Warrior)
         {
             characterStatus.Name = "Warrior";
             DEF += 2;
         }
-        else if (state == State.Healer)
+        else if (job == Job.Healer)
         {
             characterStatus.Name = "Healer";
             HP += 2;
             CurrHp += 2;
         }
-        else if (state == State.Wizard)
+        else if (job == Job.Wizard)
         {
             characterStatus.Name = "Wizard";
             ATK += 2;
         }
-        else if (state == State.Thief)
+        else if (job == Job.Thief)
         {
             characterStatus.Name = "Thief";
             //DEX += 2;
@@ -77,6 +86,11 @@ public class Test : MonoBehaviour
 
         // 변경된 상태 데이터를 PlayerPrefs에 저장합니다.
         characterStatus.SaveCharacterStatus();
+    }
+
+    public void TurnStart()
+    {
+        Attack();
     }
 
     public void Attack() // Attack 함수
@@ -101,6 +115,34 @@ public class Test : MonoBehaviour
         }
     }
 
+    public void CurrState(int STATE)
+    {
+        if (STATE == 1)
+        {
+            state = State.Burn;
+        }
+        else if (STATE == 2)
+        {
+            state = State.Scar;
+        }
+    }
+    
+    public void StateTurn(int TURN)
+    {
+
+        if (TURN > 0)
+        {
+            if (state == State.Burn)
+            {
+                CurrHp -= 1;
+                TURN -= 1;
+            }
+        }
+        else if(TURN == 0)
+        {
+            state = State.Normal;
+        }
+    }
 
     public void LevelUP(int EXP) // LevelUP 함수
     {

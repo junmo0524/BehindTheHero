@@ -64,6 +64,7 @@ public class MonsterTest : MonoBehaviour
         foreach (GameObject hero in enemys)
         {
             hero.GetComponent<Test>()?.OnDamage(atk);
+            hero.GetComponent<Test>()?.CurrState(1);
         }
     }
 

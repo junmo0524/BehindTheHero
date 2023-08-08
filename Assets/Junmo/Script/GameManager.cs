@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
                 {
                     if (List[num].gameObject.activeSelf == true)
                     {
-                        List[num].GetComponent<Test>().Attack();
+                        List[num].GetComponent<Test>().TurnStart();
                     }
                     else if (List[num].gameObject.activeSelf == false)
                     {
