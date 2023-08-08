@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class Test : MonoBehaviour
     public enum State
     {
         Warrior,
-        Archer,
+        Healer,
         Wizard,
         Thief
     }
@@ -20,9 +21,12 @@ public class Test : MonoBehaviour
     public TMP_Text DisplayStatus;
     public TMP_Text DisplayEXP;
     public State state;
-    private int RoleNum;
 
+    private int HP;
     private int CurrHp;
+    private int ATK;
+    private int DEF;
+    private int DEX;
 
     public void Awake()
     {
@@ -30,34 +34,47 @@ public class Test : MonoBehaviour
     }
     public void Start()
     {
-        if (state == State.Warrior)
-            RoleNum = 0;
-        else if (state == State.Archer)
-             RoleNum = 1;
-        else if (state == State.Wizard)
-            RoleNum = 2;
-        else if (state == State.Thief)
-            RoleNum = 3;
-
+        HP = characterStatus.HP;
         CurrHp = characterStatus.HP;
+        ATK = characterStatus.ATK;
+        DEF = characterStatus.DEF;
+        DEX = characterStatus.DEX;
+        if (state == State.Warrior)
+        {
+            characterStatus.Name = "Warrior";
+            DEF += 2;
+        }
+        else if (state == State.Healer)
+        {
+            characterStatus.Name = "Healer";
+            HP += 2;
+            CurrHp += 2;
+        }
+        else if (state == State.Wizard)
+        {
+            characterStatus.Name = "Wizard";
+            ATK += 2;
+        }
+        else if (state == State.Thief)
+        {
+            characterStatus.Name = "Thief";
+            //DEX += 2;
+        }
     }
 
     public void Update()
     {
+        //화면에 스탯창
         DisplayStatus.text =
              characterStatus.Name + "\n" +
-           "HP: " + CurrHp + "/" + characterStatus.HP + "\n" +
-           "ATK: " + characterStatus.ATK + "\n" +
-           "DEF: " + characterStatus.DEF + "\n" +
-           "DEX: " + characterStatus.DEX;
+           "HP: " + CurrHp + "/" + HP + "\n" +
+           "ATK: " + ATK + "\n" +
+           "DEF: " + DEF + "\n" +
+           "DEX: " + DEX;
         DisplayEXP.text =
             "LEVEL: " + characterStatus.LEVEL + "\n" +
             "EXP: " + characterStatus.EXP + "/" + 10;
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            //Attack();
-        }
         // 변경된 상태 데이터를 PlayerPrefs에 저장합니다.
         characterStatus.SaveCharacterStatus();
     }
@@ -68,7 +85,7 @@ public class Test : MonoBehaviour
         GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemys)
         {
-            enemy.GetComponent<MonsterTest>()?.OnDamage(characterStatus.ATK);
+            enemy.GetComponent<MonsterTest>()?.OnDamage(ATK);
         }
     }
 

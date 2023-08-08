@@ -813,8 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d57a46a91ac174ab3807964070fa39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  List: 
-  StatusList: []
+  List: []
 --- !u!1 &716790368
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,10 +894,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Status: {fileID: 11400000, guid: 5bea78e97c68e544bb2f7e100648eef0, type: 2}
-  H_Status: {fileID: 11400000, guid: 0c83023f6b3ca9242b05383471b1d703, type: 2}
   Gold: {fileID: 11400000, guid: 66729bf6f22cd6d4a8b104ca5c80672c, type: 2}
   DisplayStatus: {fileID: 1894958944}
-  dex: 0
 --- !u!4 &882427397
 Transform:
   m_ObjectHideFlags: 0
@@ -997,10 +994,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Status: {fileID: 11400000, guid: da77e5443d5970844912be92bd157268, type: 2}
-  H_Status: {fileID: 11400000, guid: 0c83023f6b3ca9242b05383471b1d703, type: 2}
   Gold: {fileID: 11400000, guid: 66729bf6f22cd6d4a8b104ca5c80672c, type: 2}
   DisplayStatus: {fileID: 1832015785}
-  dex: 0
 --- !u!4 &983410216
 Transform:
   m_ObjectHideFlags: 0
@@ -1421,10 +1416,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Status: {fileID: 11400000, guid: 9a10ffb4a37bfe54aa4e2d38af1a3875, type: 2}
-  H_Status: {fileID: 11400000, guid: 0c83023f6b3ca9242b05383471b1d703, type: 2}
   Gold: {fileID: 11400000, guid: 66729bf6f22cd6d4a8b104ca5c80672c, type: 2}
   DisplayStatus: {fileID: 268658607}
-  dex: 0
 --- !u!4 &1399551325
 Transform:
   m_ObjectHideFlags: 0
