@@ -7,6 +7,7 @@ public class MonsterTest : MonoBehaviour
 {
     public M_StatusData Status;
     public GoldData Gold;
+    public List<Skill> SkillList = new List<Skill>();
     public TMP_Text DisplayStatus;
     private string M_name;
     private int hp;
@@ -23,6 +24,7 @@ public class MonsterTest : MonoBehaviour
         def = Status.DEF;
         dex = Status.DEX;
         exp = Status.EXP;
+        SkillList[0].StateNum();
     }
     void Start()
     {
@@ -37,6 +39,12 @@ public class MonsterTest : MonoBehaviour
            "ATK: " + atk + "\n" +
            "DEF: " + def + "\n" +
            "DEX: " + dex;
+    }
+
+    public void TurnStart()
+    {
+        Debug.Log(M_name + " ÀÇ Â÷·Ê");
+        Attack();
     }
     public void OnDamage(int ATK)
     {
@@ -59,12 +67,13 @@ public class MonsterTest : MonoBehaviour
 
     public void Attack()
     {
-        Debug.Log(M_name + " ÀÇ Â÷·Ê");
+        Debug.Log(M_name + "ÀÇ " + SkillList[0].name + " °ø°Ý!");
         GameObject[] enemys = GameObject.FindGameObjectsWithTag("Hero");
         foreach (GameObject hero in enemys)
         {
-            hero.GetComponent<Test>()?.OnDamage(atk);
-            hero.GetComponent<Test>()?.CurrState(1);
+            hero.GetComponent<Test>()?.OnDamage(atk + SkillList[0].Damage);
+            hero.GetComponent<Test>()?.CurrState(SkillList[0].Statenum);
+            hero.GetComponent<Test>()?.StateTurn(SkillList[0].StateTurn);
         }
     }
 

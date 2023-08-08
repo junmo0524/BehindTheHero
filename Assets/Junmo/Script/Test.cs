@@ -90,12 +90,12 @@ public class Test : MonoBehaviour
 
     public void TurnStart()
     {
+        Debug.Log(characterStatus.name + " 의 차례");
         Attack();
     }
 
     public void Attack() // Attack 함수
     {
-        Debug.Log(characterStatus.name + " 의 차례");
         GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemys)
         {
@@ -106,7 +106,7 @@ public class Test : MonoBehaviour
     public void OnDamage(int ATK)
     {
         CurrHp = CurrHp - ATK;
-        Debug.Log(ATK + "만큼의 피해를 입었다");
+        Debug.Log(characterStatus.name + "는 " + ATK + " 만큼의 피해를 입었다");
         if (CurrHp <= 0)
         {
             Debug.Log(characterStatus.name + "이 쓰러졌습니다");
@@ -120,16 +120,21 @@ public class Test : MonoBehaviour
         if (STATE == 1)
         {
             state = State.Burn;
+            Debug.Log(characterStatus.name + "은 화상에 입었다");
         }
         else if (STATE == 2)
         {
             state = State.Scar;
+            Debug.Log(characterStatus.name + "은 출혈이 났다");
+        }
+        else if (STATE == 3)
+        {
+            Debug.Log(characterStatus.name + "은 굷주렸다");
         }
     }
     
     public void StateTurn(int TURN)
     {
-
         if (TURN > 0)
         {
             if (state == State.Burn)

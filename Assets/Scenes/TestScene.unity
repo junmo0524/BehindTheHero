@@ -847,7 +847,8 @@ MonoBehaviour:
   max: {fileID: 11400000, guid: cd39d448a9b18e941a43878eee66c4b3, type: 2}
   DisplayStatus: {fileID: 1117565862}
   DisplayEXP: {fileID: 1024313808}
-  state: 1
+  job: 0
+  state: 0
 --- !u!4 &716790370
 Transform:
   m_ObjectHideFlags: 0
@@ -895,6 +896,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Status: {fileID: 11400000, guid: 5bea78e97c68e544bb2f7e100648eef0, type: 2}
   Gold: {fileID: 11400000, guid: 66729bf6f22cd6d4a8b104ca5c80672c, type: 2}
+  SkillList:
+  - {fileID: 11400000, guid: 692c6b146a5c8ed4b8b73ce02d0fc0f7, type: 2}
   DisplayStatus: {fileID: 1894958944}
 --- !u!4 &882427397
 Transform:
@@ -995,6 +998,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Status: {fileID: 11400000, guid: da77e5443d5970844912be92bd157268, type: 2}
   Gold: {fileID: 11400000, guid: 66729bf6f22cd6d4a8b104ca5c80672c, type: 2}
+  SkillList:
+  - {fileID: 11400000, guid: 1f8d25d5dd7dc334da968cd2989f23e4, type: 2}
   DisplayStatus: {fileID: 1832015785}
 --- !u!4 &983410216
 Transform:
@@ -1417,6 +1422,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Status: {fileID: 11400000, guid: 9a10ffb4a37bfe54aa4e2d38af1a3875, type: 2}
   Gold: {fileID: 11400000, guid: 66729bf6f22cd6d4a8b104ca5c80672c, type: 2}
+  SkillList:
+  - {fileID: 11400000, guid: ad963da82d990d3439a429372039e413, type: 2}
   DisplayStatus: {fileID: 268658607}
 --- !u!4 &1399551325
 Transform:
@@ -1954,4 +1961,5 @@ MonoBehaviour:
   max: {fileID: 11400000, guid: cd39d448a9b18e941a43878eee66c4b3, type: 2}
   DisplayStatus: {fileID: 583191801}
   DisplayEXP: {fileID: 2022413708}
+  job: 0
   state: 0
