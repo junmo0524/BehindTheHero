@@ -7,30 +7,22 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Status Data", menuName = "Custom/Status Data")]
 public class StatusData : ScriptableObject
 {
-    public List<status> statusList = new List<status>();
+    //public List<status> statusList = new List<status>();
 
-    [Serializable]
-    public class status
-    {
-        public string Name;
-        public int LEVEL;
-        public int EXP;
-        public int HP;
-        public int ATK;
-        public int DEF;
-        public int DEX;
-
-        public status(string name, int level, int exp, int hp, int atk, int def, int dex)
-        {
-            Name = name;
-            LEVEL = level;
-            EXP = exp;
-            HP = hp;
-            ATK = atk;
-            DEF = def;
-            DEX = dex;
-        }
-    }
+    [SerializeField]
+    public string Name;
+    [SerializeField]
+    public int LEVEL;
+    [SerializeField]
+    public int EXP;
+    [SerializeField]
+    public int HP;
+    [SerializeField]
+    public int ATK;
+    [SerializeField]
+    public int DEF;
+    [SerializeField]
+    public int DEX;
 
     // 데이터를 PlayerPrefs에 저장하는 메서드
     public void SaveCharacterStatus()

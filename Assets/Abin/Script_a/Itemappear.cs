@@ -6,7 +6,7 @@ using UnityEngine;
 public class Itemappear : MonoBehaviour
 {
     public Vector2 inputVec;
-    Rigidbody2D rigid;
+    public Rigidbody2D rigid;
 
     public bool isdown;
     public float Pushtime = 0;
@@ -17,27 +17,30 @@ public class Itemappear : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Pushtime == 5)
-        {
-            Destroy(gameObject);
-        }
-    }
+    //void Update()
+    //{
+                
+    //}
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "Target")
         {
             Debug.Log("이벤트발생");
-            if (Input.GetKey(KeyCode.F))
+            if (Input.GetKey(KeyCode.Space))
             {
-                Pushtime++;
-                Debug.Log("채집 " + Pushtime + " 회");
+                //isdown = true;
+                Debug.Log("채집 시작.");
+                Pushtime ++;
+                if (Pushtime == 5)
+                {
+                    Destroy(gameObject);
+                }
 
+               
             }
 
-         
+           
         }
     }
 }
