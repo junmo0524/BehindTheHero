@@ -5,8 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Hero
-  - ob1
-  - ob2
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,7 +14,7 @@ TagManager:
   - Water
   - UI
   - 
-  - Static Sprite
+  - 
   - 
   - 
   - 
