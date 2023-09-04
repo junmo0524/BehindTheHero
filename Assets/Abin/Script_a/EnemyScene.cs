@@ -22,7 +22,7 @@ public class EnemyScene : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Target")
+        if (collision.gameObject.name == "Player")
         {
             Debug.Log("플레이어와 충돌");
             Debug.Log("전투씬으로 전환");

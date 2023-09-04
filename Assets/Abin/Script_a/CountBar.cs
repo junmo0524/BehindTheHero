@@ -13,10 +13,11 @@ public class CountBar : MonoBehaviour
     RectTransform hpbar;
 
     public float height = -0.25f;
-
+    
     // Start is called before the first frame update
-    void Start()
+    void Start()    
     {
+        prfHpBar.SetActive(false);
         hpbar = Instantiate(prfHpBar,canvas.transform).GetComponent<RectTransform>();
 
         //오브젝트 범위에 충돌한 목록 확인
@@ -26,7 +27,16 @@ public class CountBar : MonoBehaviour
         for (int i = 0; i < hit.Length; ++i)
         {
             Debug.Log(hit[i].name);
+            if (hit[i].name == "Player")
+            {
+                prfHpBar.SetActive(true);
+            }
+            else
+            {
+                prfHpBar.SetActive(false);
+            }
         }
+
     }
 
     // Update is called once per frame
