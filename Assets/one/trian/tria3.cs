@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class tria3 : MonoBehaviour
 {
-    public int allalla = 10;
-    // Start is called before the first frame update
-    public void alla(int a)
+    public int matk = 2;
+    public int mhp = 10;
+    public void attack(int atk)
     {
         Debug.Log("Àü");
-        Debug.Log(allalla);//10
+        Debug.Log(mhp);//10
         Debug.Log("»©±â");
-        Debug.Log(a);//4
-        allalla = allalla - a;
+        Debug.Log(atk);//4
+        mhp = mhp - atk;
         Debug.Log("ÈÄ");
-        Debug.Log(allalla);//6
+        Debug.Log(mhp);//6
     }
 }

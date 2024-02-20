@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class tria6 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int matk = 2;
+    public int mhp = 10;
+    public void attack(int atk)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Àü");
+        Debug.Log(mhp);//10
+        Debug.Log("»©±â");
+        Debug.Log(atk);//4
+        mhp = mhp - atk;
+        Debug.Log("ÈÄ");
+        Debug.Log(mhp);//6
     }
 }

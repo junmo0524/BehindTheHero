@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ps2 : MonoBehaviour
 {
+    public int fron = 1;
+    public int atk = 4;
+    public int hp = 10;
+
     public GameObject ob6;
     public GameObject ob5;
     public GameObject ob4;

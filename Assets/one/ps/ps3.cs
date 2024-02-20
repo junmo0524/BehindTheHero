@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ps3 : MonoBehaviour
 {
+    public int fron = 1;
+    public int atk = 4;
+    public int hp = 10;
     public GameObject objj;//쓸 오브젝트의 자리
     public GameObject objee;
     public GameObject ob6;
@@ -36,8 +39,15 @@ public class ps3 : MonoBehaviour
         {
             ob3.transform.position = tr;
         }
-        objee = objj.GetComponent<col3>().obje;//Start()로는 안되서 일단 클릭해야 되는 걸로 함
-        objee.GetComponent<tria3>().alla(4);//allalla에서 4를 뺄 것임
+        if(fron == 1)//전열일 때 
+        {
+            objee = objj.GetComponent<col3>().obje;//Start()로는 안되서 일단 클릭해야 되는 걸로 함
+            objee.GetComponent<tria3>().attack(atk);//세모3 hp에서 4를 뺄 것임
+        }
+        else
+        {
+
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
