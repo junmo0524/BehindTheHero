@@ -12,11 +12,11 @@ public class frontcol1 : MonoBehaviour
     public GameObject ob1;
     void Start()
     {
-        
+
     }
     void Update()
     {
-        
+
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
